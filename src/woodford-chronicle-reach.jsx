@@ -649,8 +649,12 @@ function PageMockup({ size }) {
   // Render an 8.5 × 11ish newspaper page with the selected ad placed inside
   const PAGE_W = 320;
   const PAGE_H = 360;
-  const adW = (size.w / 100) * (PAGE_W - 32);
-  const adH = (size.h / 100) * (PAGE_H - 60);
+  const PAD_X = 16;
+  const PAD_Y = 14;
+  const CONTENT_W = PAGE_W - PAD_X * 2;
+  const CONTENT_H = PAGE_H - PAD_Y * 2;
+  const adW = (size.w / 100) * CONTENT_W;
+  const adH = (size.h / 100) * CONTENT_H;
 
   return (
     <div className="flex justify-center">
@@ -709,7 +713,7 @@ function PageMockup({ size }) {
           </div>
         </div>
 
-        {/* The ad — absolutely positioned, centered */}
+        {/* The ad — absolutely positioned, bottom-right of content area */}
         <motion.div
           key={size.id}
           initial={{ opacity: 0, scale: 0.92 }}
@@ -717,9 +721,8 @@ function PageMockup({ size }) {
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="absolute flex flex-col items-center justify-center"
           style={{
-            left: '50%',
-            bottom: 18,
-            transform: 'translateX(-50%)',
+            right: PAD_X,
+            bottom: PAD_Y,
             width: adW,
             height: adH,
             backgroundColor: RED,
