@@ -5,9 +5,11 @@ import { motion, useInView, animate, useMotionValue, useTransform } from 'motion
 // CONSTANTS
 // ============================================================================
 
-const HOUSEHOLDS = 3372;
+const MAILED_COPIES = 2672;       // Mailed to every home & business in Eureka (61530)
+const STORE_COPIES = 700;         // Distributed to stores, restaurants, gas stations & businesses in Woodford County
+const TOTAL_COPIES = MAILED_COPIES + STORE_COPIES;  // 3,372
 const PASS_ALONG_RATE = 2.3;
-const TOTAL_READERS = Math.round(HOUSEHOLDS * PASS_ALONG_RATE);
+const TOTAL_READERS = Math.round(TOTAL_COPIES * PASS_ALONG_RATE);
 const FACEBOOK_CPM = 15;
 
 const AD_SIZES = [
@@ -191,7 +193,7 @@ function Hero() {
           transition={{ duration: 1, delay: 1.2 }}
           className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 max-w-4xl"
         >
-          <Stat number={3372} label="Households mailed" />
+          <Stat number={3372} label="Copies distributed" />
           <Stat number={7756} label="Adult readers" />
           <Stat number={100} label="Coverage of 61530" suffix="%" />
           <Stat number={1} label="Day. Once a month." />
@@ -260,8 +262,8 @@ function HouseholdReveal() {
 
   // Build a 60-col grid of dots totaling ~3372
   const cols = 60;
-  const fullRows = Math.floor(HOUSEHOLDS / cols); // 56
-  const remainder = HOUSEHOLDS - fullRows * cols; // 12
+  const fullRows = Math.floor(TOTAL_COPIES / cols); // 56
+  const remainder = TOTAL_COPIES - fullRows * cols; // 12
   const dots = [];
   for (let r = 0; r < fullRows; r++) {
     for (let c = 0; c < cols; c++) dots.push({ r, c });
@@ -304,10 +306,10 @@ function HouseholdReveal() {
             className="text-base md:text-lg leading-relaxed opacity-70 max-w-xl"
             style={{ fontFamily: 'Inter Tight, sans-serif' }}
           >
-            On the first Wednesday of every month starting June 3, 2026, your ad
-            lands in front of every single household in 61530. No targeting
-            guesswork. No skipped feeds. Just full coverage of the town that
-            keeps your business alive.
+            On the first Wednesday of every month starting June 3, 2026, 2,672 copies
+            are mailed to every home and business in Eureka, and 700 more
+            are distributed to stores, restaurants, gas stations and local businesses
+            throughout Woodford County. No targeting guesswork. No skipped feeds.
           </p>
         </div>
 
@@ -352,7 +354,7 @@ function HouseholdReveal() {
             <div className="text-2xl mb-1 tabular" style={{ fontFamily: 'Fraunces, serif' }}>
               3,372
             </div>
-            <div className="opacity-60">addresses, 100% coverage</div>
+            <div className="opacity-60">copies every issue</div>
           </motion.div>
         </div>
 
@@ -425,8 +427,8 @@ function PlanBuilder() {
 
   const monthly = size.price * (1 - duration.discount);
   const total = monthly * duration.months;
-  const totalReach = HOUSEHOLDS * duration.months;
-  const cpm = (size.price / HOUSEHOLDS) * 1000;
+  const totalReach = TOTAL_COPIES * duration.months;
+  const cpm = (size.price / TOTAL_COPIES) * 1000;
   const monthlyRevenue = customerValue * newCustomers;
   const roi = ((monthlyRevenue - monthly) / monthly) * 100;
   const breakeven = Math.ceil(monthly / customerValue);
@@ -842,7 +844,7 @@ function TheClose() {
               }}
             >
               The first issue<br />
-              closes <span style={{ color: RED, fontStyle: 'italic' }}>May 20.</span>
+              closes <span style={{ color: RED, fontStyle: 'italic' }}>May 28.</span>
             </h2>
             <p
               className="text-base md:text-lg opacity-70 max-w-xl leading-relaxed mb-8"
@@ -893,19 +895,19 @@ function TheClose() {
               </div>
 
               <Milestone
-                date="WED MAY 20"
+                date="THU MAY 28"
                 title="Space reservation closes"
                 sub="Confirm size and run length"
               />
               <Milestone
-                date="WED MAY 27"
+                date="MON JUN 2"
                 title="Final artwork due"
                 sub="Or send copy + logo, we design free"
               />
               <Milestone
                 date="WED JUN 3"
                 title="In-home delivery"
-                sub="Edition No. 01 hits 3,372 mailboxes"
+                sub="Edition No. 01 — 2,672 mailed + 700 to local businesses"
                 highlight
               />
               <Milestone
