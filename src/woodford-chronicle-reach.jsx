@@ -71,31 +71,20 @@ function useFonts() {
 // CHRONICLE WORDMARK (recreated to match)
 // ============================================================================
 
-function ChronicleLogo({ size = 1, showTagline = false }) {
+function ChronicleLogo({ width = 220, showTagline = false }) {
   return (
-    <div
-      className="inline-flex flex-col leading-none select-none items-center"
-      style={{ letterSpacing: '-0.02em' }}
-    >
-      <span style={{ fontFamily: 'Arial Black, Impact, sans-serif', color: GRAY, fontSize: `${size * 1.6}rem`, lineHeight: 0.85 }}>
-        WOODFORD
-      </span>
-      <span style={{
-        fontFamily: 'Arial Black, Impact, sans-serif',
-        color: RED,
-        fontSize: `${size * 2.0}rem`,
-        lineHeight: 0.85,
-        marginTop: `${size * 0.05}rem`,
-        letterSpacing: '-0.04em',
-      }}>
-        chronicle
-      </span>
+    <div className="inline-flex flex-col items-center select-none">
+      <img
+        src="/wc-logo.jpg"
+        alt="Woodford Chronicle"
+        style={{ width, height: 'auto' }}
+      />
       {showTagline && (
         <span style={{
           fontFamily: 'Arial, Helvetica, sans-serif',
           color: GRAY,
-          fontSize: `${size * 0.55}rem`,
-          marginTop: `${size * 0.4}rem`,
+          fontSize: '0.6rem',
+          marginTop: '0.4rem',
           letterSpacing: '0.08em',
           fontWeight: 400,
           textTransform: 'uppercase',
@@ -145,7 +134,7 @@ function Hero() {
     >
       {/* Top bar: centered logo with tagline */}
       <div className="flex flex-col items-center px-8 md:px-16 pt-10">
-        <ChronicleLogo size={1.1} showTagline />
+        <ChronicleLogo width={260} showTagline />
       </div>
 
       {/* Center stage */}
@@ -926,7 +915,7 @@ function TheClose() {
           style={{ borderColor: 'rgba(250,250,247,0.15)' }}
         >
           <div>
-            <ChronicleLogo size={1} />
+            <ChronicleLogo width={180} />
             <div
               className="mt-4 text-xs opacity-50 max-w-sm leading-relaxed"
               style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
