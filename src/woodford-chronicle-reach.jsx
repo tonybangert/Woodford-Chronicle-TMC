@@ -844,7 +844,7 @@ function TheClose() {
               }}
             >
               The first issue<br />
-              closes <span style={{ color: RED, fontStyle: 'italic' }}>May 28.</span>
+              closes <span style={{ color: RED, fontStyle: 'italic' }}>May 29.</span>
             </h2>
             <p
               className="text-base md:text-lg opacity-70 max-w-xl leading-relaxed mb-8"
@@ -895,7 +895,7 @@ function TheClose() {
               </div>
 
               <Milestone
-                date="THU MAY 28"
+                date="FRI MAY 29"
                 title="Space reservation closes"
                 sub="Confirm size and run length"
               />
