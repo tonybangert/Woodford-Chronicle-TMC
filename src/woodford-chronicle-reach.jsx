@@ -40,7 +40,7 @@ const GRAY  = '#9B9B9B';
 function useFonts() {
   useEffect(() => {
     const link = document.createElement('link');
-    link.href = 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Inter+Tight:wght@300..800&family=Archivo+Black&family=JetBrains+Mono:wght@400..700&display=swap';
+    link.href = 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Inter+Tight:wght@300..800&family=JetBrains+Mono:wght@400..700&display=swap';
     link.rel = 'stylesheet';
     document.head.appendChild(link);
 
@@ -77,16 +77,17 @@ function useFonts() {
 // CHRONICLE WORDMARK (recreated to match)
 // ============================================================================
 
-function ChronicleLogo({ size = 1 }) {
+function ChronicleLogo({ size = 1, showTagline = false }) {
   return (
     <div
-      className="inline-flex flex-col leading-none select-none"
-      style={{ fontFamily: 'Archivo Black, sans-serif', letterSpacing: '-0.02em' }}
+      className="inline-flex flex-col leading-none select-none items-center"
+      style={{ letterSpacing: '-0.02em' }}
     >
-      <span style={{ color: GRAY, fontSize: `${size * 1.6}rem`, lineHeight: 0.85 }}>
+      <span style={{ fontFamily: 'Arial Black, Impact, sans-serif', color: GRAY, fontSize: `${size * 1.6}rem`, lineHeight: 0.85 }}>
         WOODFORD
       </span>
       <span style={{
+        fontFamily: 'Arial Black, Impact, sans-serif',
         color: RED,
         fontSize: `${size * 2.0}rem`,
         lineHeight: 0.85,
@@ -95,6 +96,19 @@ function ChronicleLogo({ size = 1 }) {
       }}>
         chronicle
       </span>
+      {showTagline && (
+        <span style={{
+          fontFamily: 'Arial, Helvetica, sans-serif',
+          color: GRAY,
+          fontSize: `${size * 0.55}rem`,
+          marginTop: `${size * 0.4}rem`,
+          letterSpacing: '0.08em',
+          fontWeight: 400,
+          textTransform: 'uppercase',
+        }}>
+          Serving Woodford County Since 2005
+        </span>
+      )}
     </div>
   );
 }
@@ -135,17 +149,9 @@ function Hero() {
       className="relative min-h-screen flex flex-col justify-between paper-grain overflow-hidden"
       style={{ backgroundColor: PAPER }}
     >
-      {/* Top bar: logo + edition stamp */}
-      <div className="flex items-start justify-between px-8 md:px-16 pt-10">
-        <ChronicleLogo size={1.1} />
-        <div
-          className="hidden md:flex flex-col items-end text-right"
-          style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: INK }}
-        >
-          <div className="opacity-60">EDITION No. 01</div>
-          <div className="opacity-60">EUREKA / 61530</div>
-          <div className="opacity-60 mt-1">VOL. TMC.2026</div>
-        </div>
+      {/* Top bar: centered logo with tagline */}
+      <div className="flex flex-col items-center px-8 md:px-16 pt-10">
+        <ChronicleLogo size={1.1} showTagline />
       </div>
 
       {/* Center stage */}
@@ -671,7 +677,7 @@ function PageMockup({ size }) {
       >
         {/* Mock masthead */}
         <div className="flex items-end justify-between mb-2 pb-2 border-b-2" style={{ borderColor: INK }}>
-          <div style={{ fontFamily: 'Archivo Black, sans-serif', fontSize: '0.55rem', color: GRAY, letterSpacing: '-0.02em' }}>
+          <div style={{ fontFamily: 'Arial Black, Impact, sans-serif', fontSize: '0.55rem', color: GRAY, letterSpacing: '-0.02em' }}>
             WOODFORD <span style={{ color: RED }}>chronicle</span>
           </div>
           <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.4rem', color: INK, opacity: 0.6 }}>
