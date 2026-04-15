@@ -39,11 +39,6 @@ const GRAY  = '#9B9B9B';
 
 function useFonts() {
   useEffect(() => {
-    const link = document.createElement('link');
-    link.href = 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Inter+Tight:wght@300..800&family=JetBrains+Mono:wght@400..700&display=swap';
-    link.rel = 'stylesheet';
-    document.head.appendChild(link);
-
     // Inject keyframes for the household reveal
     const style = document.createElement('style');
     style.innerHTML = `
@@ -67,7 +62,6 @@ function useFonts() {
     document.head.appendChild(style);
 
     return () => {
-      document.head.removeChild(link);
       document.head.removeChild(style);
     };
   }, []);
@@ -166,7 +160,7 @@ function Hero() {
             className="inline-flex items-center gap-3 px-3 py-1.5 border-2"
             style={{
               borderColor: INK,
-              fontFamily: 'JetBrains Mono, monospace',
+              fontFamily: 'Arial, Helvetica, sans-serif',
               fontSize: '0.7rem',
               color: INK,
             }}
@@ -182,10 +176,10 @@ function Hero() {
           transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="font-medium leading-[0.88] tracking-tight"
           style={{
-            fontFamily: 'Fraunces, serif',
+            fontFamily: 'Arial Black, Impact, sans-serif',
             fontSize: 'clamp(3rem, 9vw, 8rem)',
             color: INK,
-            fontVariationSettings: '"opsz" 144',
+  
           }}
         >
           Reach every<br />
@@ -210,7 +204,7 @@ function Hero() {
       <div className="px-8 md:px-16 pb-10 flex items-end justify-between">
         <div
           className="max-w-md text-sm leading-relaxed opacity-70"
-          style={{ fontFamily: 'Inter Tight, sans-serif', color: INK }}
+          style={{ fontFamily: 'Arial, Helvetica, sans-serif', color: INK }}
         >
           The only advertising medium in Eureka that guarantees 100% household
           delivery. No algorithm. No opt-in. No scrolling past.
@@ -220,7 +214,7 @@ function Hero() {
           style={{ animation: 'scrollHint 2s ease-in-out infinite' }}
         >
           <span
-            style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.65rem', color: INK }}
+            style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontSize: '0.65rem', color: INK }}
             className="opacity-60"
           >
             BUILD YOUR PLAN
@@ -240,17 +234,17 @@ function Stat({ number, label, suffix = '' }) {
       <div
         className="font-medium leading-none mb-2"
         style={{
-          fontFamily: 'Fraunces, serif',
+          fontFamily: 'Arial Black, Impact, sans-serif',
           fontSize: 'clamp(1.75rem, 4vw, 2.75rem)',
           color: INK,
-          fontVariationSettings: '"opsz" 144',
+
         }}
       >
         <Counter to={number} suffix={suffix} />
       </div>
       <div
         className="text-xs uppercase tracking-wider opacity-60"
-        style={{ fontFamily: 'JetBrains Mono, monospace', color: INK }}
+        style={{ fontFamily: 'Arial, Helvetica, sans-serif', color: INK }}
       >
         {label}
       </div>
@@ -293,16 +287,16 @@ function HouseholdReveal() {
         <div className="mb-16 max-w-3xl">
           <div
             className="text-xs uppercase tracking-wider opacity-50 mb-4"
-            style={{ fontFamily: 'JetBrains Mono, monospace' }}
+            style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
           >
             01 / The Reach
           </div>
           <h2
             className="font-medium leading-[0.95] mb-6"
             style={{
-              fontFamily: 'Fraunces, serif',
+              fontFamily: 'Arial Black, Impact, sans-serif',
               fontSize: 'clamp(2.5rem, 6vw, 5rem)',
-              fontVariationSettings: '"opsz" 144',
+    
             }}
           >
             Every dot is a<br />
@@ -310,7 +304,7 @@ function HouseholdReveal() {
           </h2>
           <p
             className="text-base md:text-lg leading-relaxed opacity-70 max-w-xl"
-            style={{ fontFamily: 'Inter Tight, sans-serif' }}
+            style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
           >
             On the first Wednesday of every month starting June 3, 2026, 2,672 copies
             are mailed to every home and business in Eureka, and 700 more
@@ -352,12 +346,12 @@ function HouseholdReveal() {
             style={{
               borderColor: 'rgba(250,250,247,0.3)',
               backgroundColor: 'rgba(26,26,26,0.6)',
-              fontFamily: 'JetBrains Mono, monospace',
+              fontFamily: 'Arial, Helvetica, sans-serif',
               fontSize: '0.7rem',
             }}
           >
             <div className="opacity-60 mb-1">ZIP 61530 / EUREKA, IL</div>
-            <div className="text-2xl mb-1 tabular" style={{ fontFamily: 'Fraunces, serif' }}>
+            <div className="text-2xl mb-1 tabular" style={{ fontFamily: 'Arial Black, Impact, sans-serif' }}>
               3,372
             </div>
             <div className="opacity-60">copies every issue</div>
@@ -396,24 +390,24 @@ function Compare({ label, value, sub, highlight }) {
     >
       <div
         className="text-xs uppercase tracking-wider mb-3 opacity-60"
-        style={{ fontFamily: 'JetBrains Mono, monospace' }}
+        style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
       >
         {label}
       </div>
       <div
         className="font-medium leading-none mb-2 tabular"
         style={{
-          fontFamily: 'Fraunces, serif',
+          fontFamily: 'Arial Black, Impact, sans-serif',
           fontSize: '3rem',
           color: highlight ? RED : PAPER,
-          fontVariationSettings: '"opsz" 144',
+
         }}
       >
         {value}
       </div>
       <div
         className="text-sm opacity-60 leading-snug"
-        style={{ fontFamily: 'Inter Tight, sans-serif' }}
+        style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
       >
         {sub}
       </div>
@@ -449,16 +443,16 @@ function PlanBuilder() {
         <div className="mb-16 max-w-3xl">
           <div
             className="text-xs uppercase tracking-wider opacity-50 mb-4"
-            style={{ fontFamily: 'JetBrains Mono, monospace' }}
+            style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
           >
             02 / Build Your Plan
           </div>
           <h2
             className="font-medium leading-[0.95]"
             style={{
-              fontFamily: 'Fraunces, serif',
+              fontFamily: 'Arial Black, Impact, sans-serif',
               fontSize: 'clamp(2.5rem, 6vw, 5rem)',
-              fontVariationSettings: '"opsz" 144',
+    
             }}
           >
             Pick a size.<br />
@@ -472,7 +466,7 @@ function PlanBuilder() {
           <div className="lg:col-span-7">
             <div
               className="text-xs uppercase tracking-wider opacity-50 mb-4"
-              style={{ fontFamily: 'JetBrains Mono, monospace' }}
+              style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
             >
               Ad Size
             </div>
@@ -492,19 +486,19 @@ function PlanBuilder() {
                   >
                     <div
                       className="font-medium text-sm mb-1"
-                      style={{ fontFamily: 'Inter Tight, sans-serif' }}
+                      style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
                     >
                       {s.name}
                     </div>
                     <div
                       className="text-xs opacity-70 tabular"
-                      style={{ fontFamily: 'JetBrains Mono, monospace' }}
+                      style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
                     >
                       {s.dims}
                     </div>
                     <div
                       className="text-lg font-medium mt-2 tabular"
-                      style={{ fontFamily: 'Fraunces, serif' }}
+                      style={{ fontFamily: 'Arial Black, Impact, sans-serif' }}
                     >
                       ${s.price}
                     </div>
@@ -516,7 +510,7 @@ function PlanBuilder() {
             {/* Page mockup */}
             <div
               className="text-xs uppercase tracking-wider opacity-50 mb-4"
-              style={{ fontFamily: 'JetBrains Mono, monospace' }}
+              style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
             >
               Live Preview / Your ad on the page
             </div>
@@ -529,7 +523,7 @@ function PlanBuilder() {
             <div>
               <div
                 className="text-xs uppercase tracking-wider opacity-50 mb-4"
-                style={{ fontFamily: 'JetBrains Mono, monospace' }}
+                style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
               >
                 Run Length
               </div>
@@ -549,7 +543,7 @@ function PlanBuilder() {
                     >
                       <div
                         className="text-sm font-medium tabular"
-                        style={{ fontFamily: 'Inter Tight, sans-serif' }}
+                        style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
                       >
                         {d.months}×
                       </div>
@@ -557,7 +551,7 @@ function PlanBuilder() {
                         <div
                           className="text-[10px] mt-0.5 tabular"
                           style={{
-                            fontFamily: 'JetBrains Mono, monospace',
+                            fontFamily: 'Arial, Helvetica, sans-serif',
                             color: active ? RED : RED,
                           }}
                         >
@@ -574,7 +568,7 @@ function PlanBuilder() {
             <div>
               <div
                 className="text-xs uppercase tracking-wider opacity-50 mb-4"
-                style={{ fontFamily: 'JetBrains Mono, monospace' }}
+                style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
               >
                 Your Numbers
               </div>
@@ -613,7 +607,7 @@ function PlanBuilder() {
               >
                 <div
                   className="text-xs uppercase tracking-wider mb-2 opacity-60"
-                  style={{ fontFamily: 'JetBrains Mono, monospace' }}
+                  style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
                 >
                   Projected ROI per issue
                 </div>
@@ -621,25 +615,25 @@ function PlanBuilder() {
                   <span
                     className="font-medium tabular"
                     style={{
-                      fontFamily: 'Fraunces, serif',
+                      fontFamily: 'Arial Black, Impact, sans-serif',
                       fontSize: '3.5rem',
                       lineHeight: 0.9,
                       color: roi > 0 ? RED : INK,
-                      fontVariationSettings: '"opsz" 144',
+            
                     }}
                   >
                     {roi > 0 ? '+' : ''}{Math.round(roi)}%
                   </span>
                   <span
                     className="text-sm opacity-60"
-                    style={{ fontFamily: 'Inter Tight, sans-serif' }}
+                    style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
                   >
                     return on investment
                   </span>
                 </div>
                 <div
                   className="text-sm mt-3 opacity-70"
-                  style={{ fontFamily: 'Inter Tight, sans-serif' }}
+                  style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
                 >
                   Breakeven: just <span className="font-semibold tabular">{breakeven}</span>{' '}
                   new {breakeven === 1 ? 'customer' : 'customers'} pays for the entire ad.
@@ -680,7 +674,7 @@ function PageMockup({ size }) {
           <div style={{ fontFamily: 'Arial Black, Impact, sans-serif', fontSize: '0.55rem', color: GRAY, letterSpacing: '-0.02em' }}>
             WOODFORD <span style={{ color: RED }}>chronicle</span>
           </div>
-          <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.4rem', color: INK, opacity: 0.6 }}>
+          <div style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontSize: '0.4rem', color: INK, opacity: 0.6 }}>
             JUNE 3, 2026
           </div>
         </div>
@@ -741,13 +735,13 @@ function PageMockup({ size }) {
         >
           <div
             className="text-center px-2"
-            style={{ fontFamily: 'Fraunces, serif', fontSize: adH > 60 ? '0.85rem' : '0.6rem', fontWeight: 600 }}
+            style={{ fontFamily: 'Arial Black, Impact, sans-serif', fontSize: adH > 60 ? '0.85rem' : '0.6rem', fontWeight: 600 }}
           >
             YOUR AD
           </div>
           <div
             className="text-center px-2 opacity-80"
-            style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.5rem', marginTop: 2 }}
+            style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontSize: '0.5rem', marginTop: 2 }}
           >
             {size.dims}
           </div>
@@ -763,13 +757,13 @@ function SliderRow({ label, value, min, max, step, prefix = '', onChange }) {
       <div className="flex items-baseline justify-between mb-2">
         <span
           className="text-sm opacity-70"
-          style={{ fontFamily: 'Inter Tight, sans-serif' }}
+          style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
         >
           {label}
         </span>
         <span
           className="font-medium tabular"
-          style={{ fontFamily: 'Fraunces, serif', fontSize: '1.25rem', color: INK }}
+          style={{ fontFamily: 'Arial Black, Impact, sans-serif', fontSize: '1.25rem', color: INK }}
         >
           {prefix}{value.toLocaleString()}
         </span>
@@ -795,17 +789,17 @@ function Metric({ label, value, sub, accent }) {
     <div>
       <div
         className="text-[10px] uppercase tracking-wider mb-1 opacity-60"
-        style={{ fontFamily: 'JetBrains Mono, monospace' }}
+        style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
       >
         {label}
       </div>
       <div
         className="font-medium leading-none tabular"
         style={{
-          fontFamily: 'Fraunces, serif',
+          fontFamily: 'Arial Black, Impact, sans-serif',
           fontSize: '1.6rem',
           color: accent ? RED : INK,
-          fontVariationSettings: '"opsz" 144',
+
         }}
       >
         {value}
@@ -813,7 +807,7 @@ function Metric({ label, value, sub, accent }) {
       {sub && (
         <div
           className="text-[10px] opacity-50 mt-1"
-          style={{ fontFamily: 'JetBrains Mono, monospace' }}
+          style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
         >
           {sub}
         </div>
@@ -837,16 +831,16 @@ function TheClose() {
           <div className="lg:col-span-7">
             <div
               className="text-xs uppercase tracking-wider opacity-50 mb-4"
-              style={{ fontFamily: 'JetBrains Mono, monospace' }}
+              style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
             >
               03 / Reserve Your Placement
             </div>
             <h2
               className="font-medium leading-[0.92] mb-8"
               style={{
-                fontFamily: 'Fraunces, serif',
+                fontFamily: 'Arial Black, Impact, sans-serif',
                 fontSize: 'clamp(2.5rem, 6vw, 5rem)',
-                fontVariationSettings: '"opsz" 144',
+      
               }}
             >
               The first issue<br />
@@ -854,7 +848,7 @@ function TheClose() {
             </h2>
             <p
               className="text-base md:text-lg opacity-70 max-w-xl leading-relaxed mb-8"
-              style={{ fontFamily: 'Inter Tight, sans-serif' }}
+              style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
             >
               Space is reserved on a first-come basis. Once the inaugural June 3
               edition is full, the next opportunity is July. Lock in your spot
@@ -867,7 +861,7 @@ function TheClose() {
               style={{
                 backgroundColor: RED,
                 color: PAPER,
-                fontFamily: 'Inter Tight, sans-serif',
+                fontFamily: 'Arial, Helvetica, sans-serif',
                 fontWeight: 600,
                 fontSize: '1rem',
                 letterSpacing: '0.02em',
@@ -881,7 +875,7 @@ function TheClose() {
 
             <div
               className="mt-8 text-sm opacity-60"
-              style={{ fontFamily: 'Inter Tight, sans-serif' }}
+              style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
             >
               Or call Mark Doherty directly:{' '}
               <a href="tel:8476752715" className="font-semibold tabular hover:opacity-100" style={{ color: PAPER }}>
@@ -895,7 +889,7 @@ function TheClose() {
             <div className="border p-8" style={{ borderColor: 'rgba(250,250,247,0.2)' }}>
               <div
                 className="text-xs uppercase tracking-wider opacity-50 mb-6"
-                style={{ fontFamily: 'JetBrains Mono, monospace' }}
+                style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
               >
                 Production Timeline
               </div>
@@ -935,7 +929,7 @@ function TheClose() {
             <ChronicleLogo size={1} />
             <div
               className="mt-4 text-xs opacity-50 max-w-sm leading-relaxed"
-              style={{ fontFamily: 'Inter Tight, sans-serif' }}
+              style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
             >
               Chronicle Media, LLC. Member, Illinois Press Association and
               National Newspaper Association. Trusted local journalism, built
@@ -944,7 +938,7 @@ function TheClose() {
           </div>
           <div
             className="text-right"
-            style={{ fontFamily: 'Fraunces, serif', fontSize: '1.5rem', fontStyle: 'italic' }}
+            style={{ fontFamily: 'Arial Black, Impact, sans-serif', fontSize: '1.5rem', fontStyle: 'italic' }}
           >
             Support local.<br />
             Be seen.<br />
@@ -968,14 +962,14 @@ function Milestone({ date, title, sub, highlight, last }) {
       <div className="flex-1">
         <div
           className="text-[10px] uppercase tracking-wider opacity-60 mb-1 tabular"
-          style={{ fontFamily: 'JetBrains Mono, monospace' }}
+          style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
         >
           {date}
         </div>
         <div
           className="font-medium mb-1"
           style={{
-            fontFamily: 'Fraunces, serif',
+            fontFamily: 'Arial Black, Impact, sans-serif',
             fontSize: '1.15rem',
             color: highlight ? RED : PAPER,
           }}
@@ -984,7 +978,7 @@ function Milestone({ date, title, sub, highlight, last }) {
         </div>
         <div
           className="text-xs opacity-60 leading-snug"
-          style={{ fontFamily: 'Inter Tight, sans-serif' }}
+          style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
         >
           {sub}
         </div>
