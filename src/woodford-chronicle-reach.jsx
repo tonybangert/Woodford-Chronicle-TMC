@@ -140,7 +140,7 @@ function Counter({ to, duration = 2, className = '', prefix = '', suffix = '' })
 function Hero() {
   return (
     <section
-      className="relative min-h-screen flex flex-col justify-between paper-grain overflow-hidden"
+      className="relative flex flex-col justify-between paper-grain overflow-hidden"
       style={{ backgroundColor: PAPER }}
     >
       {/* Top bar: centered logo with tagline */}
@@ -149,7 +149,7 @@ function Hero() {
       </div>
 
       {/* Center stage */}
-      <div className="px-8 md:px-16 flex-1 flex flex-col justify-center max-w-7xl mx-auto w-full">
+      <div className="px-8 md:px-16 py-12 flex flex-col justify-center max-w-7xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -177,7 +177,7 @@ function Hero() {
           className="font-medium leading-[0.88] tracking-tight"
           style={{
             fontFamily: 'Arial Black, Impact, sans-serif',
-            fontSize: 'clamp(3rem, 9vw, 8rem)',
+            fontSize: 'clamp(1.6rem, 5vw, 3.5rem)',
             color: INK,
   
           }}
@@ -191,7 +191,7 @@ function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.2 }}
-          className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 max-w-4xl"
+          className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl"
         >
           <Stat number={3372} label="Copies distributed" />
           <Stat number={7756} label="Adult readers" />
@@ -235,7 +235,7 @@ function Stat({ number, label, suffix = '' }) {
         className="font-medium leading-none mb-2"
         style={{
           fontFamily: 'Arial Black, Impact, sans-serif',
-          fontSize: 'clamp(1.75rem, 4vw, 2.75rem)',
+          fontSize: 'clamp(1.1rem, 3vw, 1.75rem)',
           color: INK,
 
         }}
@@ -280,11 +280,11 @@ function HouseholdReveal() {
   return (
     <section
       ref={ref}
-      className="relative py-32 px-8 md:px-16 overflow-hidden"
+      className="relative py-16 px-8 md:px-16 overflow-hidden"
       style={{ backgroundColor: INK, color: PAPER }}
     >
       <div className="max-w-7xl mx-auto">
-        <div className="mb-16 max-w-3xl">
+        <div className="mb-8 max-w-3xl">
           <div
             className="text-xs uppercase tracking-wider opacity-50 mb-4"
             style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
@@ -295,7 +295,7 @@ function HouseholdReveal() {
             className="font-medium leading-[0.95] mb-6"
             style={{
               fontFamily: 'Arial Black, Impact, sans-serif',
-              fontSize: 'clamp(2.5rem, 6vw, 5rem)',
+              fontSize: 'clamp(1.3rem, 3.5vw, 2.4rem)',
     
             }}
           >
@@ -359,7 +359,7 @@ function HouseholdReveal() {
         </div>
 
         {/* Comparison row */}
-        <div className="mt-20 grid md:grid-cols-3 gap-8 md:gap-12">
+        <div className="mt-10 grid md:grid-cols-3 gap-6 md:gap-8">
           <Compare
             label="The Chronicle TMC"
             value="100%"
@@ -398,7 +398,7 @@ function Compare({ label, value, sub, highlight }) {
         className="font-medium leading-none mb-2 tabular"
         style={{
           fontFamily: 'Arial Black, Impact, sans-serif',
-          fontSize: '3rem',
+          fontSize: '2rem',
           color: highlight ? RED : PAPER,
 
         }}
@@ -435,12 +435,12 @@ function PlanBuilder() {
 
   return (
     <section
-      className="py-32 px-8 md:px-16 paper-grain"
+      className="py-16 px-8 md:px-16 paper-grain"
       style={{ backgroundColor: PAPER, color: INK }}
     >
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
-        <div className="mb-16 max-w-3xl">
+        <div className="mb-8 max-w-3xl">
           <div
             className="text-xs uppercase tracking-wider opacity-50 mb-4"
             style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
@@ -451,7 +451,7 @@ function PlanBuilder() {
             className="font-medium leading-[0.95]"
             style={{
               fontFamily: 'Arial Black, Impact, sans-serif',
-              fontSize: 'clamp(2.5rem, 6vw, 5rem)',
+              fontSize: 'clamp(1.3rem, 3.5vw, 2.4rem)',
     
             }}
           >
@@ -461,7 +461,7 @@ function PlanBuilder() {
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-12">
+        <div className="grid lg:grid-cols-12 gap-8">
           {/* LEFT: Ad size selector + page mockup */}
           <div className="lg:col-span-7">
             <div
@@ -616,7 +616,7 @@ function PlanBuilder() {
                     className="font-medium tabular"
                     style={{
                       fontFamily: 'Arial Black, Impact, sans-serif',
-                      fontSize: '3.5rem',
+                      fontSize: '2.5rem',
                       lineHeight: 0.9,
                       color: roi > 0 ? RED : INK,
             
@@ -823,11 +823,11 @@ function Metric({ label, value, sub, accent }) {
 function TheClose() {
   return (
     <section
-      className="py-32 px-8 md:px-16"
+      className="py-16 px-8 md:px-16"
       style={{ backgroundColor: INK, color: PAPER }}
     >
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-12 gap-12">
+        <div className="grid lg:grid-cols-12 gap-8">
           <div className="lg:col-span-7">
             <div
               className="text-xs uppercase tracking-wider opacity-50 mb-4"
@@ -839,7 +839,7 @@ function TheClose() {
               className="font-medium leading-[0.92] mb-8"
               style={{
                 fontFamily: 'Arial Black, Impact, sans-serif',
-                fontSize: 'clamp(2.5rem, 6vw, 5rem)',
+                fontSize: 'clamp(1.3rem, 3.5vw, 2.4rem)',
       
               }}
             >
@@ -922,7 +922,7 @@ function TheClose() {
 
         {/* Footer / closing line */}
         <div
-          className="mt-24 pt-12 border-t flex flex-col md:flex-row md:items-end md:justify-between gap-8"
+          className="mt-12 pt-8 border-t flex flex-col md:flex-row md:items-end md:justify-between gap-6"
           style={{ borderColor: 'rgba(250,250,247,0.15)' }}
         >
           <div>
