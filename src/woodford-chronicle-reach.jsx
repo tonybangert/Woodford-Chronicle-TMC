@@ -75,7 +75,7 @@ function ChronicleLogo({ width = 220, showTagline = false }) {
   return (
     <div className="inline-flex flex-col items-center select-none">
       <img
-        src="/wc-logo.jpg"
+        src="/wc-logo.png"
         alt="Woodford Chronicle"
         style={{ width, height: 'auto' }}
       />
